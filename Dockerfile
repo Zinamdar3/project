@@ -1,12 +1,11 @@
-FROM node:14
+# Dockerfile
+FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+COPY app.py .
 
-COPY . .
+RUN pip install Flask
 
-EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["python", "app.py"]
 
